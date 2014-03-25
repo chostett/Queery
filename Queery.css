@@ -4,15 +4,23 @@
 /* Typography */
 h1, h2 {
     font-family: 'Roboto Slab';
-    font-size: 50px;
+    font-size: 40px;
 }
-#intro {
-    width: 480px;
+body {
     text-align: center;
     font-family: 'Arial';
     font-size: 30px;
 }
+#intro {
+    width: 480px;
+}
+#intro img {
+    align-content: center;
+}
 .boldGreen {
     font-weight: bold;
     color: #28b6a4;
+}
+#emailsignup {
+    background-color: #E2E2E2;
 }
