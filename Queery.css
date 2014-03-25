@@ -1,1 +1,16 @@
-/* CSS declarations go here */
+/* Site-wide Fonts */
+@import url(http://fonts.googleapis.com/css?family=Roboto+Slab);
+
+/* Typography */
+h1, h2 {
+    font-family: 'Roboto Slab';
+    font-size: 50px;
+}
+body p {
+    font-family: 'Arial';
+    font-size: 36px;
+}
+.boldGreen {
+    font-weight: bold;
+    color: #28b6a4;
+}
