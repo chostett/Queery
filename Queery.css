@@ -6,9 +6,11 @@ h1, h2 {
     font-family: 'Roboto Slab';
     font-size: 50px;
 }
-body p {
+#intro {
+    width: 480px;
+    text-align: center;
     font-family: 'Arial';
-    font-size: 36px;
+    font-size: 30px;
 }
 .boldGreen {
     font-weight: bold;
