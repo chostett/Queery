@@ -7,16 +7,6 @@ if (Meteor.isClient) {
 
   Meteor.subscribe('userData');
   Meteor.subscribe('emails');
-  Template.footer.events({
-    'click .login' : function(evt, tmpl){
-       Meteor.loginWithGithub();
-       return false;
-    },
-
-    'click .admin' : function(evt, tmpl){
-       Session.set("showAdmin", !Session.get("showAdmin"));
-     }
-  })
 
   Template.signup.events({
     'submit form' : function (evt, tmpl) {
@@ -27,6 +17,11 @@ if (Meteor.isClient) {
       Session.set("showBadEmail", false);
       Meteor.call("insertEmail", doc);
       Session.set("emailSubmitted", true);
+      Email.send({
+        to: 'SpectrumProject@ac4d.com',
+        from: 'SpectrumProject@ac4d.com',
+        subject: 'New User Signup',
+        text: email});
     } else {
       Session.set("showBadEmail", true);
     }
@@ -42,9 +37,6 @@ if (Meteor.isClient) {
     return Session.get("emailSubmitted");
   };
 
-  Template.footer.isAdmin = function() {
-    return isAdmin(Meteor.userId())
-  };
 
   Template.main.showAdmin = function() {
     return Session.get("showAdmin");
@@ -58,7 +50,7 @@ if (Meteor.isClient) {
 
   if (Meteor.isServer) {
 
-    Meteor.publish("userData", function () {
+/*    Meteor.publish("userData", function () {
       return Meteor.users.find({_id: this.userId}, {fields: {'services.github.username': 1, 'username':1}});
     });
 
@@ -67,7 +59,7 @@ if (Meteor.isClient) {
         return Emails.find();
       }
     });
-
+*/
     Meteor.methods({
       insertEmail: function(doc) {
         Emails.insert(doc);
