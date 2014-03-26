@@ -1,6 +1,6 @@
 if (Meteor.isClient) {
   Template.hello.greeting = function () {
-    return "Welcome to Queery.";
+    return "Welcome to Queery.<img src=images/queery.png>";
   };
 
   Template.hello.events({
@@ -10,6 +10,9 @@ if (Meteor.isClient) {
         console.log("You pressed the button");
     }
   });
+  Template.loginbuttons({
+
+  })
 }
 
 if (Meteor.isServer) {
