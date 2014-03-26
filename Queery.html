@@ -4,6 +4,8 @@
 </head>
 
 <body>
+{{loginButtons}}
+{{main}}
 <div id="intro">
     <img src="../images/queery-logo.png">
     <br></br>
@@ -21,3 +23,31 @@
   {{greeting}}
   <input type="button" value="Click" />
 </template>
+
+<template name="main">
+  {{signup}}
+</template>
+
+<template name = "signup">
+  {{#if emailSubmitted}}
+    <h1>Thanks for signing up!</h1>
+  {{ else }}
+    <h1>Sign up for our newsletter</h1>
+    <p>We'd love to stay in touch with you &mdash; leave us your email and we'll keep you up to date...</p>
+    <form>
+    { #if showBadEmail}}
+      { > badEmail}}
+    { /if}}
+    <input id="email"><button>&gt;</button>
+    { /if}}
+    </form>
+
+
+</template>
+     }</button>
+     }
+    }
+    }
+   </form></p>
+   }</h>
+  }
