@@ -9,6 +9,7 @@ h1, h2 {
 body {
     font-family: 'Arial';
     font-size: 30px;
+    line-height: 1;
     width: 100%;
 }
 ul, ol {
@@ -62,10 +63,40 @@ input[type="submit"] {
 /* Secret Signal */
 #secretSignalHere {
     background-color: #E2E2E2;
+    height: 600px;
+    padding: 100px 20px 0;
+}
+#secretSignalFound {
+    background-color: #15a738;
+    height: 600px;
+    padding: 100px 20px 0;
+}
+#secretSignalHere p, #secretSignalFound p {
+    text-align: center;
+    margin-bottom: 50px;
+}
+#secretSignalFound p {
+    color: #96f2ac;
+    margin-bottom: 100px;
 }
 .hereButton {
-    background: #f00;
+    background: #15a738;
     width: 200px;
     height: 200px;
     border-radius: 50%;
+    margin: auto;
+}
+.foundYouText {
+    font-family: "Roboto Slab";
+    text-align: center;
+    color: #FFF;
+    font-size: 2em;
+}
+.hereText {
+    font-family: "Roboto Slab";
+    color: #FFF;
+    font-size: 1.3em;
+    width: 100%;
+    padding-top: 80px;
+    padding-left: 20px;
 }
