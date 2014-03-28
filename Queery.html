@@ -4,19 +4,38 @@
 </head>
 
 <body>
-<div id="intro">
-    <img src="../images/queery-logo.png">
-    <br></br>
-    ...is a group in Austin for <div class="boldGreen">gender non-conformists</div> to <div class="boldGreen">meet face-to-face</div> and make friends.</div>
-<div id="emailsignup">
-    Want to join in on the fun?
-    <h2>Sign up for Queery.</h2>
-</div>
-</div>
+{{> main}}
 </body>
 
-<template name="hello">
-  <h1>Hello World!</h1>
-  {{greeting}}
-  <input type="button" value="Click" />
+<template name="main">
+  {{> intro}}
+  {{> signup}}
+</template>
+
+<template name="intro">
+  <img src="queery.png"/>
+    <br></br>
+    ...is a group in Austin for <div class="boldGreen">gender non-conformists</div> to <div class="boldGreen">meet face-to-face</div> and make friends.</div>
+</template>
+
+<template name = "signup">
+  {{#if emailSubmitted }}
+    <h1>Thanks for signing up!</h1>
+  {{else }}
+    Want to join in on the fun?
+    <h2>Sign up for Queery.</h2>
+    <form>
+      {{#if showBadEmail}}
+        {{> badEmail}}
+      {{/if}}
+      <input id="email"><button>&gt;</button>
+  {{/if}}
+  </form>
+</template>
+
+
+<template name="badEmail">
+  <div class="error">
+    <p>That's not a real email address...</p>
+  </div>
 </template>
