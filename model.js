@@ -5,25 +5,29 @@ EMAIL_REGEX = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@(
 
 if (Meteor.isClient) {
 
+  process.env.MAIL_URL='smtp://alex@getqueery.com:14th3m0ney@smtp.google.com:465'
   Meteor.subscribe('userData');
   Meteor.subscribe('emails');
 
   Template.signup.events({
     'submit form' : function (evt, tmpl) {
 
-    var email = tmpl.find('input').value , doc = {email: email, referrer: document.referrer, timestamp: new Date()}
+    var emails = tmpl.find('input').value , doc = {email: email, referrer: document.referrer, timestamp: new Date()}
 
     if (EMAIL_REGEX.test(email)){
+      console.log("1");
       Session.set("showBadEmail", false);
+      console.log("2");
       Meteor.call("insertEmail", doc);
+      console.log("3");
       Session.set("emailSubmitted", true);
-      Email.send({
-        to: 'SpectrumProject@ac4d.com',
-        from: 'SpectrumProject@ac4d.com',
-        subject: 'New User Signup',
-        text: email});
+      console.log("4");
+      Meteor.call(sendEmail,email);
+      console.log("5");
     } else {
+      console.log(email, "bademail 1");
       Session.set("showBadEmail", true);
+      console.log("bademail 2");
     }
       return false;
     }
@@ -37,46 +41,24 @@ if (Meteor.isClient) {
     return Session.get("emailSubmitted");
   };
 
-
-  Template.main.showAdmin = function() {
-    return Session.get("showAdmin");
-  };
-
-  Template.admin.emails = function() {
-    return Emails.find().fetch();
-  };
-
-  }
+  } //end of if Meteor.isClient
 
   if (Meteor.isServer) {
 
-/*    Meteor.publish("userData", function () {
-      return Meteor.users.find({_id: this.userId}, {fields: {'services.github.username': 1, 'username':1}});
-    });
-
-    Meteor.publish("emails", function() {
-      if (isAdmin(this.userId)) {
-        return Emails.find();
-      }
-    });
-*/
     Meteor.methods({
       insertEmail: function(doc) {
         Emails.insert(doc);
+      },
+
+      sendEmail: function(email) {
+          check([email],[String]);
+        Email.send({
+          to: 'SpectrumProject@ac4d.com',
+          from: 'SpectrumProject@ac4d.com',
+          subject: 'New User Signup',
+          text: email
+        });   
       }
     })
   }
 
-displayName = function (user) {
-  if (user.profile && user.profile.name)
-    return user.profile.name;
-  return user.emails[0].address;
-};
-
-var contactEmail = function (user) {
-  if (user.emails && user.emails.length)
-    return user.emails[0].address;
-  if (user.services && user.services.facebook && user.services.facebook.email)
-    return user.services.facebook.email;
-  return null;
-};
