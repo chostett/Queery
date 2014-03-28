@@ -4,12 +4,12 @@
 /* Typography */
 h1, h2 {
     font-family: 'Roboto Slab';
-    font-size: 30px;
+    font-size: 1em;
 }
 body {
     font-family: 'Arial';
     font-size: 30px;
-    width: 480px;
+    width: 45%;
 }
 ul, ol {
     list-style: none;
@@ -20,7 +20,7 @@ ul, ol {
 }
 .asideText {
     font-weight: italic;
-    font-size: 20px;
+    font-size: .70em;
     color: #CCC;
 }
 
@@ -38,7 +38,7 @@ input[type="submit"] {
     -webkit-border-radius: 2px;
     background-color: #28b6a4;
     color: #FFFFFF;
-    font-size: 25px;
+    font-size: .85em;
 }
 .backButton input[type="submit"] {
     background-color: #666;
