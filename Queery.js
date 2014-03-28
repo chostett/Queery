@@ -1,5 +1,5 @@
 if (Meteor.isClient) {
-  Template.hello.greeting = function () {
+ /* Template.hello.greeting = function () {
     return "Welcome to Queery.<img src=images/queery.png>";
   };
 
@@ -13,6 +13,7 @@ if (Meteor.isClient) {
   Template.loginbuttons({
 
   })
+*/
 }
 
 if (Meteor.isServer) {
