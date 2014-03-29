@@ -1,6 +1,7 @@
 <head>
   <title>Queery</title>
   <link href="Queery.css" rel="stylesheet" type="text/css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
@@ -9,18 +10,29 @@
 
 <template name="main">
   {{> intro}}
+  <br>
   {{> signup}}
 </template>
 
 <template name="intro">
-  <img src="queery.png"/>
+  <div class=container>
+    <center>
+    <img src="queery.png"/>
     <br><br>
-    <div>...is a group in Austin for <div class="boldGreen">gender non-conformists</div> to <div class="boldGreen">meet face-to-face</div> and make friends.</div>
+    ...is a new way to meet face-to-face and make friends.
+    </center>
+  </div>
 </template>
 
 <template name = "signup">
+  <div class=container>
+    <center>
+    We're starting our pilot in Austin, Texas.
     Want to join in on the fun?
-    <h2>Sign up for Queery.</h2>
+    <br>
+    Sign up for Queery.
+    <br>
+    <br>
     <!-- Begin MailChimp Signup Form -->
     <div id="mc_embed_signup">
     <form action="http://getqueery.us8.list-manage.com/subscribe/post?u=0cc40d5d624c6381fb24b99c4&amp;id=ff9fd5f51f" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
@@ -37,6 +49,8 @@
     </div>
 
     <!--End mc_embed_signup-->
+    </center>
+  </div>
 </template>
 
 <template name = "signup_backup">
